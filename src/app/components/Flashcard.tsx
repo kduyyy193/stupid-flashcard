@@ -1,48 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 interface FlashcardProps {
-  word: string;
-  meaning: string;
+  prompt: string;
+  answer: string;
   onAnswer: (isCorrect: boolean) => void;
   onNext: () => void;
 }
 
 const Flashcard: React.FC<FlashcardProps> = ({
-  word,
-  meaning,
+  prompt,
+  answer,
   onAnswer,
   onNext,
 }) => {
   const [userInput, setUserInput] = useState("");
   const [isAnswered, setIsAnswered] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const checkAnswer = () => {
     setIsAnswered(true);
-    if (userInput.toLowerCase().trim() === meaning.toLowerCase().trim()) {
-      setCorrectAnswer(true);
-      onAnswer(true);
-    } else {
-      setCorrectAnswer(false);
-      onAnswer(false);
-    }
+    const isAnswerCorrect = userInput.toLowerCase().trim() === answer.toLowerCase().trim();
+    setIsCorrect(isAnswerCorrect);
+    onAnswer(isAnswerCorrect);
   };
 
   useEffect(() => {
-    if (word) {
-      setUserInput("");
-      setIsAnswered(false);
-    }
-  }, [word]);
+    setUserInput("");
+    setIsAnswered(false);
+  }, [prompt]);
 
   return (
     <div className="flex flex-col items-center p-4 border rounded shadow-lg">
-      <h2 className="text-2xl mb-4 font-semibold">Translate: {word}</h2>
+      <h2 className="text-2xl mb-4 font-semibold">{prompt}</h2>
       <input
         type="text"
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
-        placeholder="Enter the meaning"
+        placeholder="Enter your answer"
         className="p-2 mb-4 border rounded text-black"
         onKeyDown={(e) => e.key === "Enter" && checkAnswer()}
       />
@@ -54,12 +48,11 @@ const Flashcard: React.FC<FlashcardProps> = ({
       </button>
       {isAnswered && (
         <div
-          className={`mt-4  text-center ${
-            correctAnswer ? "text-green-500" : "text-red-500"
+          className={`mt-4 text-center ${
+            isCorrect ? "text-green-500" : "text-red-500"
           }`}
         >
-          {correctAnswer ? "Correct!" : "Wrong!"}
-          <p className="capitalize">{meaning}</p>
+          {isCorrect ? "Correct!" : `Wrong! The correct answer is: ${answer}`}
         </div>
       )}
       {isAnswered && (
@@ -69,11 +62,6 @@ const Flashcard: React.FC<FlashcardProps> = ({
         >
           Next
         </button>
-      )}
-      {isAnswered && !correctAnswer && (
-        <div className="mt-2 text-gray-600">
-          <p>The correct answer is: {meaning}</p>
-        </div>
       )}
     </div>
   );

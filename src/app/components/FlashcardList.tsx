@@ -128,6 +128,9 @@ const FlashcardList: React.FC = () => {
               <li key={card.id} className="mb-2">
                 {isViPrompt ? card.vi : card.en}: 
                 <span className="text-green-500 ml-2">
+                {`${card.vi} - ${card.en}`}
+                </span>,
+                <span className="text-green-500 ml-2">
                   Correct: {correctAnswers.get(card.id) || 0}
                 </span>, 
                 <span className="text-red-500 ml-2">

@@ -30,7 +30,7 @@ const Flashcard: React.FC<FlashcardProps> = ({
   }, [prompt]);
 
   return (
-    <div className="flex flex-col items-center p-4 rounded shadow-lg min-h-[276px]">
+    <div className="flex flex-col items-center p-4 rounded shadow-lg sm:min-h-[276px]">
       <h2 className="text-2xl mb-4 font-semibold">{prompt}</h2>
       <input
         type="text"

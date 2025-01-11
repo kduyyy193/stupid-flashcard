@@ -3,10 +3,10 @@ import FlashcardList from "./components/FlashcardList";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-4 sm:p-8 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-col items-center justify-center p-4">
-          <h1 className="text-4xl font-bold mb-8">Stupid Flashcards</h1>
+          <h1 className="text-3xl font-bold mb-8">Stupid Flashcards</h1>
           <FlashcardList />
         </div>
       </main>

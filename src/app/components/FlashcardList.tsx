@@ -129,13 +129,13 @@ const FlashcardList: React.FC = () => {
   }, [handleNext]);
 
   return (
-    <div className="space-y-6 max-w-full min-w-[600px]">
+    <div className="space-y-6 w-full">
       <Topics topics={topics} onChange={handleChangeTopic} />
 
       {flashcards.length > 0 && (
         <div className="mt-4">
           <div className="mb-2">Chọn ải số bên dưới</div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             {Array(Math.round(flashcards.length / PER_PAGE) - 1)
               .fill("")
               .map((_, idx) => (
@@ -185,7 +185,7 @@ const FlashcardList: React.FC = () => {
         </p>
       )}
       {flashcards.length > 0 && !hasCompleted && (
-        <p className="text-sm text-gray-500">{`Ấn "Mũi tên phải" để qua thẻ tiếp theo đi :v`}</p>
+        <p className="text-sm text-gray-500 sm:block hidden">{`Ấn "Mũi tên phải" để qua thẻ tiếp theo đi :v`}</p>
       )}
     </div>
   );

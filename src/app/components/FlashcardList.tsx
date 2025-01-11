@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import Flashcard from "./Flashcard";
+import messages from "../data/messages";
+import Topics, { ITopics } from "./Topics";
+import useLazyCachedData from "../hooks/useCachedData";
+import arrayRandomItems from "../helpers/arrayRandomItems";
 
 interface FlashcardData {
   id: number;
@@ -8,17 +12,38 @@ interface FlashcardData {
   en: string;
 }
 
+const PER_PAGE = 20;
+
 const FlashcardList: React.FC = () => {
   const [flashcards, setFlashcards] = useState<FlashcardData[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
-  const [correctAnswers, setCorrectAnswers] = useState<Map<number, number>>(new Map());
-  const [incorrectAnswers, setIncorrectAnswers] = useState<Map<number, number>>(new Map());
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
+  const [totalAnswers, setTotalAnswers] = useState<number>(0);
   const [remainingIndexes, setRemainingIndexes] = useState<number[]>([]);
   const [hasCompleted, setHasCompleted] = useState<boolean>(false);
   const [isViPrompt, setIsViPrompt] = useState<boolean>(true);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const LOCAL_STORAGE_KEY = "flashcards";
+  const { data: topics, getData: getTopics } = useLazyCachedData<ITopics[]>(
+    [],
+    "topics",
+    "/topics/topics.json"
+  );
+
+  const getFlashcard = useCallback(async (topicUrl: string) => {
+    try {
+      const response = await fetch(topicUrl);
+      const data = await response.json();
+      const randomArray = arrayRandomItems(data);
+      setFlashcards(randomArray);
+      setCurrentPage(1);
+      setRemainingIndexes(
+        shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   const shuffleArray = (array: number[]) => {
     const shuffled = [...array];
@@ -40,60 +65,55 @@ const FlashcardList: React.FC = () => {
     }
   }, [remainingIndexes]);
 
-  const handleAnswer = (id: number, isCorrect: boolean) => {
+  const handleAnswer = (isCorrect: boolean) => {
+    setTotalAnswers((prev) => prev + 1);
     if (isCorrect) {
-      setCorrectAnswers((prev) => {
-        const updated = new Map(prev);
-        updated.set(id, (updated.get(id) || 0) + 1);
-        return updated;
-      });
-    } else {
-      setIncorrectAnswers((prev) => {
-        const updated = new Map(prev);
-        updated.set(id, (updated.get(id) || 0) + 1);
-        return updated;
-      });
+      setCorrectAnswers((prev) => prev + 1);
     }
   };
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result as string) as FlashcardData[];
-          if (Array.isArray(data) && data.every(item => item.id && item.vi && item.en)) {
-            setFlashcards(data);
-            setRemainingIndexes(shuffleArray(Array.from({ length: data.length }, (_, index) => index)));
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
-            setErrorMessage(null);
-          } else {
-            throw new Error("Invalid file format");
-          }
-        } catch (error) {
-          console.log(error)
-          setErrorMessage("File is invalid format");
-        }
-      };
-      reader.readAsText(file);
-    }
+  const handleChangeTopic = (url: string) => {
+    getFlashcard(url);
   };
 
+  const handleRetake = () => {
+    setHasCompleted(false);
+    setRemainingIndexes(
+      shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+    );
+  };
+
+  const handleChangePage = (idx: number) => {
+    setCurrentPage(idx);
+    setHasCompleted(false);
+    setRemainingIndexes(
+      shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+    );
+  };
+
+  const getEncouragementMessage = (percentage: number) => {
+    if (percentage === 100) {
+      const perfectMessages = messages[100];
+      return perfectMessages[
+        Math.floor(Math.random() * perfectMessages.length)
+      ];
+    }
+    const key = (Math.floor(percentage / 10) * 10) as keyof typeof messages;
+    const encouragementMessages = messages[key] || messages[10];
+    return encouragementMessages[
+      Math.floor(Math.random() * encouragementMessages.length)
+    ];
+  };
+
+  const currentCard = flashcards?.slice(
+    (currentPage - 1) * PER_PAGE,
+    currentPage * PER_PAGE
+  )[currentCardIndex];
+
+  // Init data
   useEffect(() => {
-    const savedFlashcards = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (savedFlashcards) {
-      try {
-        const parsedFlashcards = JSON.parse(savedFlashcards) as FlashcardData[];
-        setFlashcards(parsedFlashcards);
-        setRemainingIndexes(shuffleArray(Array.from({ length: parsedFlashcards.length }, (_, index) => index)));
-      } catch (error) {
-        console.error("Error parsing flashcards from localStorage:", error);
-      }
-    }
-  }, []);
-
-  const currentCard = flashcards[currentCardIndex];
+    getTopics();
+  }, [getTopics]);
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -109,50 +129,64 @@ const FlashcardList: React.FC = () => {
   }, [handleNext]);
 
   return (
-    <div className="space-y-6">
-      <div>{ `format json: [{ "id": 1, "en": "dog", "vi": "con chó" },...]`}</div>
-      <input
-        type="file"
-        accept="application/json"
-        onChange={handleFileUpload}
-        className="mb-4"
-      />
-      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+    <div className="space-y-6 max-w-full min-w-[600px]">
+      <Topics topics={topics} onChange={handleChangeTopic} />
 
+      {flashcards.length > 0 && (
+        <div className="mt-4">
+          <div className="mb-2">Chọn ải số bên dưới</div>
+          <div className="flex gap-4">
+            {Array(Math.round(flashcards.length / PER_PAGE) - 1)
+              .fill("")
+              .map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`${
+                    currentPage === idx + 1 ? "bg-blue-400" : "bg-gray-400"
+                  } text-white px-4 py-2 rounded-lg cursor-pointer`}
+                  onClick={() => handleChangePage(idx + 1)}
+                >
+                  <span>{idx + 1}</span>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
       {hasCompleted ? (
         <div className="text-center">
-          <p className="text-green-500">You have completed all the memory cards!</p>
-          <h2 className="text-lg font-semibold mt-4">Result:</h2>
-          <ul className="mt-2">
-            {flashcards.map((card) => (
-              <li key={card.id} className="mb-2">
-                {isViPrompt ? card.vi : card.en}: 
-                <span className="text-green-500 ml-2">
-                {`${card.vi} - ${card.en}`}
-                </span>,
-                <span className="text-green-500 ml-2">
-                  Correct: {correctAnswers.get(card.id) || 0}
-                </span>, 
-                <span className="text-red-500 ml-2">
-                  Wrong: {incorrectAnswers.get(card.id) || 0}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p className="text-green-500">
+            Chúc mừng! Bạn đã chọc thủng hết đống thẻ nhớ rồi đấy!
+          </p>
+          <h2 className="text-lg font-semibold mt-4">
+            Kết quả: {Math.round((correctAnswers / totalAnswers) * 100)}%
+          </h2>
+          <p className="mt-4">
+            {getEncouragementMessage((correctAnswers / totalAnswers) * 100)}
+          </p>
+          <button
+            className="mt-8 bg-white text-black px-4 py-2 rounded-lg"
+            onClick={handleRetake}
+          >
+            Thử lại
+          </button>
         </div>
       ) : currentCard ? (
         <Flashcard
           prompt={isViPrompt ? currentCard.vi : currentCard.en}
           answer={isViPrompt ? currentCard.en : currentCard.vi}
-          onAnswer={(isCorrect) => handleAnswer(currentCard.id, isCorrect)}
+          onAnswer={handleAnswer}
           onNext={handleNext}
         />
       ) : (
-        <p>No flashcards available. Please upload a JSON file.</p>
+        <p className="text-lg">
+          {" "}
+          Chọn đi, đừng chọn cái nào mà dễ như bỡn, chọn cái nào ‘đâm vào não’
+          một chút cho đỡ nhàm chán nhé! 😏
+        </p>
       )}
-      <p className="text-sm text-gray-500">
-        {`Press "Arrow Right" to move to the next card.`}
-      </p>
+      {flashcards.length > 0 && !hasCompleted && (
+        <p className="text-sm text-gray-500">{`Ấn "Mũi tên phải" để qua thẻ tiếp theo đi :v`}</p>
+      )}
     </div>
   );
 };

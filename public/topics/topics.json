@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Education", "url": "/topics/education.json" },
+  { "id": 2, "name": "Hotel", "url": "/topics/hotel.json" },
+  { "id": 3, "name": "Animal", "url": "/topics/animals.json" },
+  { "id": 4, "name": "Health", "url": "/topics/health.json" },
+  { "id": 5, "name": "Family", "url": "/topics/family.json" },
+  { "id": 6, "name": "Culture", "url": "/topics/culture.json" }
+]

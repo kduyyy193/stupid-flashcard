@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stupid FlashCard 1293",
-  description: "Stupid FlashCard 1293",
+  title: "Stupid FlashCards 1293",
+  description: "Stupid FlashCards 1293",
 };
 
 export default function RootLayout({

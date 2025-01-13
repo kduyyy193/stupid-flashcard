@@ -19,7 +19,10 @@ const Flashcard: React.FC<FlashcardProps> = ({
 
   const checkAnswer = () => {
     setIsAnswered(true);
-    const isAnswerCorrect = userInput.toLowerCase().trim() === answer.toLowerCase().trim();
+    const isAnswerCorrect = answer
+      .toLowerCase()
+      .trim()
+      .includes(userInput.toLowerCase().trim());
     setIsCorrect(isAnswerCorrect);
     onAnswer(isAnswerCorrect);
   };
@@ -44,7 +47,7 @@ const Flashcard: React.FC<FlashcardProps> = ({
         onClick={checkAnswer}
         className="p-2 bg-blue-500 text-white rounded"
       >
-        Check Answer
+        Kiểm tra đáp án
       </button>
       {isAnswered && (
         <div
@@ -52,7 +55,7 @@ const Flashcard: React.FC<FlashcardProps> = ({
             isCorrect ? "text-green-500" : "text-red-500"
           }`}
         >
-          {isCorrect ? "Correct!" : `Wrong! The correct answer is: ${answer}`}
+          {isCorrect ? "Ghê" : `Sai rồi, đáp án là: ${answer}`}
         </div>
       )}
       {isAnswered && (

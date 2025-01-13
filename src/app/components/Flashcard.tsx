@@ -55,7 +55,8 @@ const Flashcard: React.FC<FlashcardProps> = ({
             isCorrect ? "text-green-500" : "text-red-500"
           }`}
         >
-          {isCorrect ? "Ghê" : `Sai rồi, đáp án là: ${answer}`}
+          {isCorrect ? "Ghê" : `Sai rồi`}
+          {`đáp án là: ${answer}`}
         </div>
       )}
       {isAnswered && (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FlashcardList from "./components/FlashcardList";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-col items-center justify-center p-4">
           <h1 className="text-3xl font-bold mb-8">Stupid Flashcards</h1>
+          <Link href="/give-me-some-words">Give me some words</Link>
           <FlashcardList />
         </div>
       </main>

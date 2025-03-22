@@ -10,6 +10,7 @@ interface FlashcardData {
   id: number;
   vi: string;
   en: string;
+  type: string;
 }
 
 const PER_PAGE = 20;
@@ -174,6 +175,7 @@ const FlashcardList: React.FC = () => {
         <Flashcard
           prompt={isViPrompt ? currentCard.vi : currentCard.en}
           answer={isViPrompt ? currentCard.en : currentCard.vi}
+          type={currentCard.type}
           onAnswer={handleAnswer}
           onNext={handleNext}
         />

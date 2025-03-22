@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 interface FlashcardProps {
   prompt: string;
   answer: string;
+  type: string;
   onAnswer: (isCorrect: boolean) => void;
   onNext: () => void;
 }
@@ -10,6 +11,7 @@ interface FlashcardProps {
 const Flashcard: React.FC<FlashcardProps> = ({
   prompt,
   answer,
+  type,
   onAnswer,
   onNext,
 }) => {
@@ -31,7 +33,7 @@ const Flashcard: React.FC<FlashcardProps> = ({
 
   return (
     <div className="flex flex-col items-center p-4 rounded shadow-lg sm:min-h-[276px]">
-      <h2 className="text-2xl mb-4 font-semibold">{prompt}</h2>
+      <h2 className="text-2xl mb-4 font-semibold">{`${prompt} (${type})`}</h2>
       <input
         type="text"
         value={userInput}

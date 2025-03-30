@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 
 interface FlashcardProps {
+  isViPrompt: boolean;
   prompt: string;
-  answer: string;
+  answer: string[];
   type: string;
+  desc?: string;
   onAnswer: (isCorrect: boolean) => void;
   onNext: () => void;
 }
 
 const Flashcard: React.FC<FlashcardProps> = ({
+  isViPrompt,
+  desc,
   prompt,
   answer,
   type,
@@ -21,7 +25,10 @@ const Flashcard: React.FC<FlashcardProps> = ({
 
   const checkAnswer = () => {
     setIsAnswered(true);
-    const isAnswerCorrect = userInput.toLowerCase().trim() === answer.toLowerCase().trim();
+    const normalizedInput = userInput.toLowerCase().trim();
+    const isAnswerCorrect = answer
+      .map((ans) => ans.toLowerCase().trim())
+      .includes(normalizedInput);
     setIsCorrect(isAnswerCorrect);
     onAnswer(isAnswerCorrect);
   };
@@ -33,7 +40,9 @@ const Flashcard: React.FC<FlashcardProps> = ({
 
   return (
     <div className="flex flex-col items-center p-4 rounded shadow-lg sm:min-h-[276px]">
-      <h2 className="text-2xl mb-4 font-semibold">{`${prompt} (${type})`}</h2>
+      <h2 className="text-2xl mb-4 font-semibold">{`${prompt} ${
+        type ? `(${type})` : ""
+      }`}</h2>
       <input
         type="text"
         value={userInput}
@@ -54,9 +63,11 @@ const Flashcard: React.FC<FlashcardProps> = ({
             isCorrect ? "text-green-500" : "text-red-500"
           }`}
         >
-          {isCorrect ? "Ghê" : `Sai rồi, đáp án là: ${answer}`}
+          {isCorrect ? "Ghê: " : `Sai rồi: `}
+          {answer.join(", ")}
         </div>
       )}
+      {isAnswered && <p>{desc}</p>}
       {isAnswered && (
         <button
           onClick={onNext}

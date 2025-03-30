@@ -8,8 +8,9 @@ import arrayRandomItems from "../helpers/arrayRandomItems";
 
 interface FlashcardData {
   id: number;
-  vi: string;
-  en: string;
+  vi: string[];
+  en: string[];
+  desc?: string;
   type: string;
 }
 
@@ -137,7 +138,7 @@ const FlashcardList: React.FC = () => {
         <div className="mt-4">
           <div className="mb-2">Chọn ải số bên dưới</div>
           <div className="flex flex-wrap gap-4">
-            {Array(Math.round(flashcards.length / PER_PAGE) - 1)
+            {Array(Math.round(flashcards.length / PER_PAGE))
               .fill("")
               .map((_, idx) => (
                 <div
@@ -173,9 +174,11 @@ const FlashcardList: React.FC = () => {
         </div>
       ) : currentCard ? (
         <Flashcard
-          prompt={isViPrompt ? currentCard.vi : currentCard.en}
+          isViPrompt={isViPrompt}
+          prompt={isViPrompt ? currentCard.vi[0] : currentCard.en[0]}
           answer={isViPrompt ? currentCard.en : currentCard.vi}
           type={currentCard.type}
+          desc={currentCard?.desc}
           onAnswer={handleAnswer}
           onNext={handleNext}
         />

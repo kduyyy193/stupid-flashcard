@@ -1,0 +1,386 @@
+[
+  {
+    "id": 21,
+    "en": ["absentminded"],
+    "vi": ["đãng trí"],
+    "type": "adjective"
+  },
+  {
+    "id": 22,
+    "en": ["adventurous"],
+    "vi": ["thích phiêu lưu"],
+    "type": "adjective"
+  },
+  {
+    "id": 23,
+    "en": ["aggressive"],
+    "vi": ["hùng hổ", "hung hăng", "hiếu chiến"],
+    "type": "adjective"
+  },
+  {
+    "id": 24,
+    "en": ["ambitious"],
+    "vi": ["đầy tham vọng"],
+    "type": "adjective"
+  },
+  {
+    "id": 25,
+    "en": ["amusing"],
+    "vi": ["làm cho buồn cười"],
+    "type": "adjective"
+  },
+  {
+    "id": 26,
+    "en": ["arrogant"],
+    "vi": ["kiêu căng", "kêu ngạo"],
+    "type": "adjective"
+  },
+  {
+    "id": 27,
+    "en": ["brave"],
+    "vi": ["dũng cảm"],
+    "type": "adjective"
+  },
+  {
+    "id": 28,
+    "en": ["bright"],
+    "vi": ["sáng dạ"],
+    "type": "adjective"
+  },
+  {
+    "id": 29,
+    "en": ["careless"],
+    "vi": ["bất cẩn", "cẩu thả", "sơ suất"],
+    "type": "adjective"
+  },
+  {
+    "id": 30,
+    "en": ["cheeky"],
+    "vi": ["hỗn xược"],
+    "type": "adjective"
+  },
+  {
+    "id": 31,
+    "en": ["clever"],
+    "vi": ["thông minh"],
+    "type": "adjective"
+  },
+  {
+    "id": 32,
+    "en": ["confident"],
+    "vi": ["tự tin"],
+    "type": "adjective"
+  },
+  {
+    "id": 33,
+    "en": ["cowardly"],
+    "vi": ["nhát gan"],
+    "type": "adjective"
+  },
+  {
+    "id": 34,
+    "en": ["decisive"],
+    "vi": ["kiến quyết", "dứt khoát", "quyết đoán"],
+    "type": "adjective"
+  },
+  {
+    "id": 35,
+    "en": ["easy-going"],
+    "vi": ["dễ tính", "dễ gần"],
+    "type": "adjective"
+  },
+  {
+    "id": 36,
+    "en": ["friendly"],
+    "vi": ["thân thiện"],
+    "type": "adjective"
+  },
+  {
+    "id": 37,
+    "en": ["fussy"],
+    "vi": ["cầu kỳ", "kiểu cách"],
+    "type": "adjective"
+  },
+  {
+    "id": 38,
+    "en": ["generous"],
+    "vi": ["rộng lượng", "hào phóng"],
+    "type": "adjective"
+  },
+  {
+    "id": 39,
+    "en": ["grateful"],
+    "vi": ["biết ơn"],
+    "type": "adjective"
+  },
+  {
+    "id": 40,
+    "en": ["honest"],
+    "vi": ["thật thà", "lương thiện"],
+    "type": "adjective"
+  },
+  {
+    "id": 41,
+    "en": ["kind"],
+    "vi": ["tốt bụng"],
+    "type": "adjective"
+  },
+  {
+    "id": 42,
+    "en": ["loyal"],
+    "vi": ["trung thành", "trung nghĩa"],
+    "type": "adjective"
+  },
+  {
+    "id": 43,
+    "en": ["mature"],
+    "vi": ["trưởng thành"],
+    "type": "adjective"
+  },
+  {
+    "id": 44,
+    "en": ["mean"],
+    "vi": ["keo kiệt"],
+    "type": "adjective"
+  },
+  {
+    "id": 45,
+    "en": ["modest"],
+    "vi": ["khiêm tốn", "nhu mì", "thùy mị"],
+    "type": "adjective"
+  },
+  {
+    "id": 46,
+    "en": ["nasty"],
+    "vi": ["bẩn thỉu", "thô tục", "cáu kỉnh"],
+    "type": "adjective"
+  },
+  {
+    "id": 47,
+    "en": ["patient"],
+    "vi": ["kiên nhẫn", "bền bĩ"],
+    "type": "adjective"
+  },
+  {
+    "id": 48,
+    "en": ["reliable"],
+    "vi": ["đáng tin cậy"],
+    "type": "adjective"
+  },
+  {
+    "id": 49,
+    "en": ["reserved"],
+    "vi": ["kín đáo", "chặt chẽ"],
+    "type": "adjective"
+  },
+  {
+    "id": 50,
+    "en": ["rude"],
+    "vi": ["thô lỗ", "man rợ", "độc ác"],
+    "type": "adjective"
+  },
+  {
+    "id": 51,
+    "en": ["selfish"],
+    "vi": ["ích kỷ"],
+    "type": "adjective"
+  },
+  {
+    "id": 52,
+    "en": ["sensible"],
+    "vi": ["thiết thực", "có óc xét đoán"],
+    "type": "adjective"
+  },
+  {
+    "id": 53,
+    "en": ["spiteful"],
+    "vi": ["hằn học", "đầy thù hận", "tỏ ra ác ý"],
+    "type": "adjective"
+  },
+  {
+    "id": 54,
+    "en": ["stubborn"],
+    "vi": ["bướng bỉnh", "ngoan cố"],
+    "type": "adjective"
+  },
+  {
+    "id": 55,
+    "en": ["stupid"],
+    "vi": ["ngu ngốc", "chậm hiểu"],
+    "type": "adjective"
+  },
+  {
+    "id": 56,
+    "en": ["tense"],
+    "vi": ["căng thẳng", "bồn chồn", "hồi hộp"],
+    "type": "adjective"
+  },
+  {
+    "id": 57,
+    "en": ["tolerant"],
+    "vi": ["khoan dung"],
+    "type": "adjective"
+  },
+  {
+    "id": 58,
+    "en": ["bigoted"],
+    "vi": ["tin mù quáng"],
+    "type": "adjective"
+  },
+  {
+    "id": 59,
+    "en": ["bitchy"],
+    "vi": ["có ác ý"],
+    "type": "adjective"
+  },
+  {
+    "id": 60,
+    "en": ["bossy"],
+    "vi": ["hống hách", "hắc dịch"],
+    "type": "adjective"
+  },
+  {
+    "id": 61,
+    "en": ["conceited"],
+    "vi": ["tự phụ", "tự cao tự đại"],
+    "type": "adjective"
+  },
+  {
+    "id": 62,
+    "en": ["dull"],
+    "vi": ["chậm hiểu", "ngu đần", "thẫn thờ"],
+    "type": "adjective"
+  },
+  {
+    "id": 63,
+    "en": ["garrulous"],
+    "vi": ["nói nhiều", "ba hoa", "lắm mồm"],
+    "type": "adjective"
+  },
+  {
+    "id": 64,
+    "en": ["gentle"],
+    "vi": ["hiền lành", "dịu dàng", "hòa nhã"],
+    "type": "adjective"
+  },
+  {
+    "id": 65,
+    "en": ["gregarious"],
+    "vi": ["thích đàn đúm", "thích giao du"],
+    "type": "adjective"
+  },
+  {
+    "id": 66,
+    "en": ["greedy"],
+    "vi": ["tham vọng"],
+    "type": "adjective"
+  },
+  {
+    "id": 67,
+    "en": ["heartless"],
+    "vi": ["vô tâm", "nhẫn tâm"],
+    "type": "adjective"
+  },
+  {
+    "id": 68,
+    "en": ["industrious"],
+    "vi": ["cần cù", "siêng năng", "chăm chỉ"],
+    "type": "adjective"
+  },
+  {
+    "id": 69,
+    "en": ["intelligent"],
+    "vi": ["thông minh", "nhanh trí"],
+    "type": "adjective"
+  },
+  {
+    "id": 70,
+    "en": ["lazy"],
+    "vi": ["lười biếng"],
+    "type": "adjective"
+  },
+  {
+    "id": 71,
+    "en": ["loving"],
+    "vi": ["âu yếm", "đằm thắm"],
+    "type": "adjective"
+  },
+  {
+    "id": 72,
+    "en": ["optimistic"],
+    "vi": ["lạc quan"],
+    "type": "adjective"
+  },
+  {
+    "id": 73,
+    "en": ["pessimistic"],
+    "vi": ["bi quan"],
+    "type": "adjective"
+  },
+  {
+    "id": 74,
+    "en": ["picky"],
+    "vi": ["kiểu cách", "cầu kỳ", "kén cá chọn canh"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 75,
+    "en": ["punctual"],
+    "vi": ["có tính đúng giờ"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 76,
+    "en": ["self-centred"],
+    "vi": ["chỉ biết mình"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 77,
+    "en": ["sensitive"],
+    "vi": ["nhạy cảm", "có tính cảm thông"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 78,
+    "en": ["sociable"],
+    "vi": ["dễ gần", "chan hoàn", "hoà đồng"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 79,
+    "en": ["stingy"],
+    "vi": ["keo kiệt", "bủn xỉn"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 80,
+    "en": ["tetchy"],
+    "vi": ["cáu kỉnh", "càu nhàu"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 81,
+    "en": ["timid"],
+    "vi": ["rụt rè", "rút nhát", "bẽn lẽn", "dễ sợ hãi"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 82,
+    "en": ["tetchy"],
+    "vi": ["kiêu ngạo", "tự phụ", "tự đắt"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 83,
+    "en": ["witty"],
+    "vi": ["hóm hỉnh", "dí dỏm"] ,
+    "type": "adjective"
+  },
+  {
+    "id": 84,
+    "en": ["impulsive"],
+    "vi": ["bốc đồng"] ,
+    "type": "adjective"
+  }
+]

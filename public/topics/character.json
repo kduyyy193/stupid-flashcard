@@ -80,7 +80,7 @@
   {
     "id": 34,
     "en": ["decisive"],
-    "vi": ["kiến quyết", "dứt khoát", "quyết đoán"],
+    "vi": ["kiên quyết", "dứt khoát", "quyết đoán"],
     "type": "adjective"
   },
   {
@@ -320,7 +320,7 @@
   {
     "id": 74,
     "en": ["picky"],
-    "vi": ["kiểu cách", "cầu kỳ", "kén cá chọn canh"] ,
+    "vi": ["kén chọn","kiểu cách", "cầu kỳ", "kén cá chọn canh"] ,
     "type": "adjective"
   },
   {
@@ -363,12 +363,6 @@
     "id": 81,
     "en": ["timid"],
     "vi": ["rụt rè", "nhút nhát", "bẽn lẽn", "dễ sợ hãi"] ,
-    "type": "adjective"
-  },
-  {
-    "id": 82,
-    "en": ["tetchy"],
-    "vi": ["kiêu ngạo", "tự phụ", "tự đắt"] ,
     "type": "adjective"
   },
   {

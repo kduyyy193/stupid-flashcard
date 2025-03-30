@@ -11,7 +11,6 @@ interface FlashcardProps {
 }
 
 const Flashcard: React.FC<FlashcardProps> = ({
-  isViPrompt,
   desc,
   prompt,
   answer,

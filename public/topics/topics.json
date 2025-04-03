@@ -4,5 +4,6 @@
   { "id": 7, "name": "Team Work", "url": "/topics/team-work.json" },
   { "id": 8, "name": "Motivation", "url": "/topics/motivation.json" },
   { "id": 9, "name": "Metal Health", "url": "/topics/metal-health.json" },
-  { "id": 1, "name": "Character", "url": "/topics/character.json" }
+  { "id": 1, "name": "Character", "url": "/topics/character.json" },
+  { "id": 11, "name": "Words of People", "url": "/topics/words-of-people.json" }
 ]

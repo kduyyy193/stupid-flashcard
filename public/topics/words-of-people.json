@@ -1,0 +1,425 @@
+[
+  {
+    "id": 1,
+    "en": ["accomplice"],
+    "vi": ["kẻ đồng lõa, tòng phạm"],
+    "type": "noun"
+  },
+  { "id": 2, "en": ["agent"], "vi": ["đại diện", "điệp viên"], "type": "noun" },
+  {
+    "id": 3,
+    "en": ["altruist"],
+    "vi": ["người giàu lòng vị tha"],
+    "type": "noun"
+  },
+  {
+    "id": 4,
+    "en": ["amateur"],
+    "vi": ["người chơi nghiệp dư"],
+    "type": "noun"
+  },
+  {
+    "id": 5,
+    "en": ["ambidexter"],
+    "vi": ["người thuận cả hai tay"],
+    "type": "noun"
+  },
+  { "id": 6, "en": ["ancestor"], "vi": ["tổ tiên"], "type": "noun" },
+  { "id": 7, "en": ["antiquary"], "vi": ["nhà sưu tầm đồ cổ"], "type": "noun" },
+  { "id": 8, "en": ["aristocrat"], "vi": ["người quý tộc"], "type": "noun" },
+  { "id": 9, "en": ["arsonist"], "vi": ["kẻ gây hỏa hoạn"], "type": "noun" },
+  { "id": 10, "en": ["artist"], "vi": ["nghệ sĩ"], "type": "noun" },
+  {
+    "id": 11,
+    "en": ["artiste"],
+    "vi": ["nghệ sĩ chuyên nghiệp"],
+    "type": "noun"
+  },
+  {
+    "id": 12,
+    "en": ["assassin"],
+    "vi": ["kẻ ám sát, kẻ giết người"],
+    "type": "noun"
+  },
+  {
+    "id": 13,
+    "en": ["autocrat"],
+    "vi": ["kẻ độc tài", "người độc quyền"],
+    "type": "noun"
+  },
+  {
+    "id": 14,
+    "en": ["bachelor"],
+    "vi": ["người đàn ông độc thân", "cử nhân"],
+    "type": "noun"
+  },
+  {
+    "id": 15,
+    "en": ["barbarian"],
+    "vi": ["người hoang dã"],
+    "type": "noun"
+  },
+  { "id": 16, "en": ["benefactor"], "vi": ["người hảo tâm"], "type": "noun" },
+  {
+    "id": 17,
+    "en": ["beneficiary"],
+    "vi": ["người được hưởng lợi"],
+    "type": "noun"
+  },
+  { "id": 18, "en": ["biblioklept"], "vi": ["kẻ trộm sách"], "type": "noun" },
+  {
+    "id": 19,
+    "en": ["bibliophile"],
+    "vi": ["người yêu sách và sưu tầm sách"],
+    "type": "noun"
+  },
+  {
+    "id": 20,
+    "en": ["cannibal"],
+    "vi": ["người ăn thịt đồng loại"],
+    "type": "noun"
+  },
+  {
+    "id": 21,
+    "en": ["castaway"],
+    "vi": ["người sống sót trong vụ đắm tàu"],
+    "type": "noun"
+  },
+  { "id": 22, "en": ["civilian"], "vi": ["thường dân"], "type": "noun" },
+  {
+    "id": 23,
+    "en": ["compere"],
+    "vi": ["người dẫn chương trình"],
+    "type": "noun"
+  },
+  {
+    "id": 24,
+    "en": ["connoisseur"],
+    "vi": ["người am hiểu, sành về một thứ gì đó"],
+    "type": "noun"
+  },
+  { "id": 25, "en": ["conqueror"], "vi": ["người chinh phục"], "type": "noun" },
+  {
+    "id": 26,
+    "en": ["contemporary"],
+    "vi": ["người đương thời"],
+    "type": "noun"
+  },
+  {
+    "id": 27,
+    "en": ["culprit"],
+    "vi": ["kẻ phạm tội", "thủ phạm"],
+    "type": "noun"
+  },
+  { "id": 28, "en": ["cynic"], "vi": ["người hoài nghi"], "type": "noun" },
+  {
+    "id": 29,
+    "en": ["despot"],
+    "vi": ["kẻ ngạo quyền", "độc tài"],
+    "type": "noun"
+  },
+  {
+    "id": 30,
+    "en": ["eavesdropper"],
+    "vi": ["người nghe trộm"],
+    "type": "noun"
+  },
+  { "id": 31, "en": ["egoist"], "vi": ["người ích kỉ"], "type": "noun" },
+  { "id": 32, "en": ["exile"], "vi": ["người bị đày"], "type": "noun" },
+  { "id": 33, "en": ["fanatic"], "vi": ["người cuồng tín"], "type": "noun" },
+  {
+    "id": 34,
+    "en": ["fugitive"],
+    "vi": ["kẻ trốn chạy luật pháp"],
+    "type": "noun"
+  },
+  { "id": 35, "en": ["hermit"], "vi": ["ẩn sĩ"], "type": "noun" },
+  {
+    "id": 71,
+    "en": ["hypocrite"],
+    "vi": ["người đạo đức giả"],
+    "type": "noun"
+  },
+  {
+    "id": 72,
+    "en": ["immigrant"],
+    "vi": ["người nhập cư"],
+    "type": "noun"
+  },
+  {
+    "id": 73,
+    "en": ["immortal"],
+    "vi": ["bất tử"],
+    "type": "adjective"
+  },
+  {
+    "id": 74,
+    "en": ["layman"],
+    "vi": ["người không chuyên môn"],
+    "type": "noun"
+  },
+  {
+    "id": 75,
+    "en": ["linguist"],
+    "vi": ["nhà ngôn ngữ học"],
+    "type": "noun"
+  },
+  {
+    "id": 76,
+    "en": ["martyr"],
+    "vi": ["người chết vì nghĩa"],
+    "type": "noun"
+  },
+  {
+    "id": 77,
+    "en": ["mastermind"],
+    "vi": ["kẻ chủ mưu"],
+    "type": "noun"
+  },
+  {
+    "id": 78,
+    "en": ["misogamist"],
+    "vi": ["người ghét kết hôn"],
+    "type": "noun"
+  },
+  {
+    "id": 79,
+    "en": ["misogynist"],
+    "vi": ["người ghét phụ nữ"],
+    "type": "noun"
+  },
+  {
+    "id": 80,
+    "en": ["missionary"],
+    "vi": ["nhà truyền giáo"],
+    "type": "noun"
+  },
+  {
+    "id": 81,
+    "en": ["moderator"],
+    "vi": ["người trung gian"],
+    "type": "noun"
+  },
+  {
+    "id": 82,
+    "en": ["monogamist"],
+    "vi": ["người chung thủy"],
+    "type": "noun"
+  },
+  {
+    "id": 83,
+    "en": ["monotheist"],
+    "vi": ["người theo thuyết một thần"],
+    "type": "noun"
+  },
+  {
+    "id": 84,
+    "en": ["non-smoker"],
+    "vi": ["người không hút thuốc"],
+    "type": "noun"
+  },
+  {
+    "id": 85,
+    "en": ["novice"],
+    "vi": ["người học việc"],
+    "type": "noun"
+  },
+  {
+    "id": 86,
+    "en": ["opportunist"],
+    "vi": ["kẻ cơ hội"],
+    "type": "noun"
+  },
+  {
+    "id": 87,
+    "en": ["optimist"],
+    "vi": ["người lạc quan"],
+    "type": "noun"
+  },
+  {
+    "id": 88,
+    "en": ["orphan"],
+    "vi": ["trẻ mồ côi"],
+    "type": "noun"
+  },
+  {
+    "id": 89,
+    "en": ["patriot"],
+    "vi": ["người yêu nước"],
+    "type": "noun"
+  },
+  {
+    "id": 90,
+    "en": ["pessimist"],
+    "vi": ["người bi quan"],
+    "type": "noun"
+  },
+  {
+    "id": 91,
+    "en": ["philanthropist"],
+    "vi": ["người làm từ thiện"],
+    "type": "noun"
+  },
+  {
+    "id": 92,
+    "en": ["pilgrim"],
+    "vi": ["người hành hương"],
+    "type": "noun"
+  },
+  {
+    "id": 93,
+    "en": ["pragmatist"],
+    "vi": ["người thực dụng"],
+    "type": "noun"
+  },
+  {
+    "id": 94,
+    "en": ["predecessor"],
+    "vi": ["người tiền nhiệm"],
+    "type": "noun"
+  },
+  {
+    "id": 95,
+    "en": ["progeny"],
+    "vi": ["hậu duệ"],
+    "type": "noun"
+  },
+  {
+    "id": 96,
+    "en": ["proxy"],
+    "vi": ["người đại diện"],
+    "type": "noun"
+  },
+  {
+    "id": 97,
+    "en": ["radical"],
+    "vi": ["người cấp tiến"],
+    "type": "noun"
+  },
+  {
+    "id": 98,
+    "en": ["recruit"],
+    "vi": ["tân binh", "thành viên mới"],
+    "type": "noun"
+  },
+  {
+    "id": 99,
+    "en": ["refugee"],
+    "vi": ["người tị nạn"],
+    "type": "noun"
+  },
+  {
+    "id": 100,
+    "en": ["sage"],
+    "vi": ["nhà hiền triết"],
+    "type": "noun"
+  },
+  {
+    "id": 101,
+    "en": ["smoker"],
+    "vi": ["người hút thuốc lá"],
+    "type": "noun"
+  },
+  {
+    "id": 102,
+    "en": ["somniloquist"],
+    "vi": ["người nói mê khi ngủ"],
+    "type": "noun"
+  },
+  {
+    "id": 103,
+    "en": ["spinster"],
+    "vi": ["người phụ nữ độc thân cả đời"],
+    "type": "noun"
+  },
+  {
+    "id": 104,
+    "en": ["sponsor"],
+    "vi": ["người bảo trợ", "người tài trợ"],
+    "type": "noun"
+  },
+  {
+    "id": 105,
+    "en": ["stowaway"],
+    "vi": ["người đi lậu vé"],
+    "type": "noun"
+  },
+  {
+    "id": 106,
+    "en": ["successor"],
+    "vi": ["người kế nghiệm"],
+    "type": "noun"
+  },
+  {
+    "id": 107,
+    "en": ["sycophant"],
+    "vi": ["người nịnh hót"],
+    "type": "noun"
+  },
+  {
+    "id": 108,
+    "en": ["teetotaler"],
+    "vi": ["người không uống rượu"],
+    "type": "noun"
+  },
+  {
+    "id": 109,
+    "en": ["traitor"],
+    "vi": ["kẻ phản bội"],
+    "type": "noun"
+  },
+  {
+    "id": 110,
+    "en": ["truant"],
+    "vi": ["học sinh trốn học"],
+    "type": "noun"
+  },
+  {
+    "id": 111,
+    "en": ["usher"],
+    "vi": ["người đưa chỗ"],
+    "type": "noun"
+  },
+  {
+    "id": 112,
+    "en": ["vagrant"],
+    "vi": ["kẻ hành khất", "người lang thang"],
+    "type": "noun"
+  },
+  {
+    "id": 113,
+    "en": ["vandel"],
+    "vi": ["kẻ phá hoại có chủ địch"],
+    "type": "noun"
+  },
+  {
+    "id": 114,
+    "en": ["vegetarian"],
+    "vi": ["người ăn chay"],
+    "type": "noun"
+  },
+  {
+    "id": 115,
+    "en": ["veteran"],
+    "vi": ["cựu chiến binh"],
+    "type": "noun"
+  },
+  {
+    "id": 116,
+    "en": ["volunteer"],
+    "vi": ["tình nguyện viên", "người tình nguyện"],
+    "type": "noun"
+  },
+  {
+    "id": 117,
+    "en": ["ward"],
+    "vi": ["người được bảo trợ"],
+    "type": "noun"
+  },
+  {
+    "id": 117,
+    "en": ["yuppie"],
+    "vi": ["người trẻ tuổi có tham vọng"],
+    "type": "noun"
+  }
+]

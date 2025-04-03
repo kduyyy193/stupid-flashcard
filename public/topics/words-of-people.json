@@ -21,7 +21,7 @@
   {
     "id": 5,
     "en": ["ambidexter"],
-    "vi": ["người thuận cả hai tay"],
+    "vi": ["người thuận cả hai tay", "người xảo quyệt"],
     "type": "noun"
   },
   { "id": 6, "en": ["ancestor"], "vi": ["tổ tiên"], "type": "noun" },
@@ -38,7 +38,7 @@
   {
     "id": 12,
     "en": ["assassin"],
-    "vi": ["kẻ ám sát, kẻ giết người"],
+    "vi": ["kẻ ám sát", "kẻ giết người"],
     "type": "noun"
   },
   {
@@ -70,7 +70,7 @@
   {
     "id": 19,
     "en": ["bibliophile"],
-    "vi": ["người yêu sách và sưu tầm sách"],
+    "vi": ["người yêu sách", "người sưu tầm sách", "người ham sách"],
     "type": "noun"
   },
   {
@@ -329,7 +329,7 @@
   {
     "id": 103,
     "en": ["spinster"],
-    "vi": ["người phụ nữ độc thân cả đời"],
+    "vi": ["người phụ nữ độc thân cả đời", "người phụ nữ chưa chồng"],
     "type": "noun"
   },
   {
@@ -347,7 +347,7 @@
   {
     "id": 106,
     "en": ["successor"],
-    "vi": ["người kế nghiệm"],
+    "vi": ["người kế nghiệm", "người kế thừa", "người nối nghiệp"],
     "type": "noun"
   },
   {
@@ -388,7 +388,7 @@
   },
   {
     "id": 113,
-    "en": ["vandel"],
+    "en": ["vandal"],
     "vi": ["kẻ phá hoại có chủ địch"],
     "type": "noun"
   },

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "en": ["accomplice"],
-    "vi": ["kẻ đồng lõa, tòng phạm"],
+    "vi": ["kẻ đồng lõa", "tòng phạm"],
     "type": "noun"
   },
   { "id": 2, "en": ["agent"], "vi": ["đại diện", "điệp viên"], "type": "noun" },

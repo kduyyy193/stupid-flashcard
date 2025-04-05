@@ -60,5 +60,11 @@
     { "id": 169, "en": ["ball"], "vi": ["mõm chân"], "type": "noun" },
     { "id": 170, "en": ["instep"], "vi": ["mu bàn chân"], "type": "noun" },
     { "id": 171, "en": ["heel"], "vi": ["gót chân"], "type": "noun" },
+    { "id": 173, "en": ["intestines"], "vi": ["ruột"], "type": "noun" },
+    { "id": 174, "en": ["vein"], "vi": ["tĩnh mạch"], "type": "noun" },
+    { "id": 175, "en": ["artery"], "vi": ["động mạch"], "type": "noun" },
+    { "id": 176, "en": ["kidney"], "vi": ["cật"], "type": "noun" },
+    { "id": 177, "en": ["pancreas"], "vi": ["tuỵ", "tuyến tuỵ"], "type": "noun" },
+    { "id": 178, "en": ["bladder"], "vi": ["bóng đái"], "type": "noun" },
     { "id": 172, "en": ["ankle"], "vi": ["mắt cá chân"], "type": "noun" }
   ]

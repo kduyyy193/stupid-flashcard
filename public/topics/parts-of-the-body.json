@@ -1,7 +1,7 @@
 [
     { "id": 111, "en": ["hip"], "vi": ["hông"], "type": "noun" },
     { "id": 112, "en": ["bottom"], "vi": ["mông"], "type": "noun" },
-    { "id": 113, "en": ["stomach"], "vi": ["bụng"], "type": "noun" },
+    { "id": 113, "en": ["stomach"], "vi": ["bụng", "dạ dày"], "type": "noun" },
     { "id": 114, "en": ["waist"], "vi": ["eo"], "type": "noun" },
     { "id": 115, "en": ["chest"], "vi": ["ngực"], "type": "noun" },
     { "id": 116, "en": ["back"], "vi": ["lưng"], "type": "noun" },

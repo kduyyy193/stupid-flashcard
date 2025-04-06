@@ -7,4 +7,5 @@
   { "id": 1, "name": "Character", "url": "/topics/character.json" },
   { "id": 11, "name": "Words of People", "url": "/topics/words-of-people.json" },
   { "id": 12, "name": "Parts of the Body", "url": "/topics/parts-of-the-body.json" }
+  { "id": 13, "name": "Face & Hair", "url": "/topics/face-and-hair.json" }
 ]

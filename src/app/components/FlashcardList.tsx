@@ -26,6 +26,8 @@ const FlashcardList: React.FC = () => {
   const [isViPrompt, setIsViPrompt] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [answeredCards, setAnsweredCards] = useState<Set<number>>(new Set());
+
   const { data: topics, getData: getTopics } = useLazyCachedData<ITopics[]>(
     [],
     "topics",
@@ -42,6 +44,7 @@ const FlashcardList: React.FC = () => {
       setRemainingIndexes(
         shuffleArray(Array.from({ length: 20 }, (_, index) => index))
       );
+      setAnsweredCards(new Set());
     } catch (error) {
       console.log(error);
     }
@@ -58,24 +61,38 @@ const FlashcardList: React.FC = () => {
 
   const handleNext = useCallback(() => {
     if (remainingIndexes.length > 0) {
+    
+      if (!answeredCards.has(currentCardIndex)) {
+        setTotalAnswers((prev) => prev + 1);
+      }
       const nextIndex = remainingIndexes[0];
       setCurrentCardIndex(nextIndex);
       setRemainingIndexes(remainingIndexes.slice(1));
       setIsViPrompt(Math.random() < 0.5);
     } else {
+    
+      if (!answeredCards.has(currentCardIndex)) {
+        setTotalAnswers((prev) => prev + 1);
+      }
       setHasCompleted(true);
     }
-  }, [remainingIndexes]);
+  }, [remainingIndexes, currentCardIndex, answeredCards]);
 
   const handleAnswer = (isCorrect: boolean) => {
-    setTotalAnswers((prev) => prev + 1);
-    if (isCorrect) {
-      setCorrectAnswers((prev) => prev + 1);
+  
+    if (!answeredCards.has(currentCardIndex)) {
+      setTotalAnswers((prev) => prev + 1);
+      if (isCorrect) {
+        setCorrectAnswers((prev) => prev + 1);
+      }
+      setAnsweredCards((prev) => new Set(prev).add(currentCardIndex));
     }
   };
 
   const handleChangeTopic = (url: string) => {
     getFlashcard(url);
+    setCorrectAnswers(0);
+    setTotalAnswers(0);
   };
 
   const handleRetake = () => {
@@ -83,6 +100,7 @@ const FlashcardList: React.FC = () => {
     setRemainingIndexes(
       shuffleArray(Array.from({ length: 20 }, (_, index) => index))
     );
+    setAnsweredCards(new Set());
   };
 
   const handleChangePage = (idx: number) => {
@@ -91,9 +109,12 @@ const FlashcardList: React.FC = () => {
     setRemainingIndexes(
       shuffleArray(Array.from({ length: 20 }, (_, index) => index))
     );
+    setAnsweredCards(new Set());
   };
 
   const getEncouragementMessage = (percentage: number) => {
+    if (!percentage || isNaN(percentage)) return messages[0]?.[0] || "Bắt đầu nào!";
+    
     if (percentage === 100) {
       const perfectMessages = messages[100];
       return perfectMessages[
@@ -112,7 +133,11 @@ const FlashcardList: React.FC = () => {
     currentPage * PER_PAGE
   )[currentCardIndex];
 
-  // Init data
+  const percentage = totalAnswers > 0 
+    ? Math.round((correctAnswers / totalAnswers) * 100) 
+    : 0;
+
+
   useEffect(() => {
     getTopics();
   }, [getTopics]);
@@ -157,19 +182,19 @@ const FlashcardList: React.FC = () => {
       {hasCompleted ? (
         <div className="text-center">
           <p className="text-green-500">
-            Chúc mừng! Bạn đã chọc thủng hết đống thẻ nhớ rồi đấy!
+            Chúc mừng! Hoàn thành hơn hoàn hảo he  😏!
           </p>
           <h2 className="text-lg font-semibold mt-4">
-            Kết quả: {Math.round((correctAnswers / totalAnswers) * 100)}%
+            Kết quả: {percentage}%
           </h2>
           <p className="mt-4">
-            {getEncouragementMessage((correctAnswers / totalAnswers) * 100)}
+            {getEncouragementMessage(percentage)}
           </p>
           <button
             className="mt-8 bg-white text-black px-4 py-2 rounded-lg"
             onClick={handleRetake}
           >
-            Thử lại
+            Thử lại má
           </button>
         </div>
       ) : currentCard ? (
@@ -185,8 +210,7 @@ const FlashcardList: React.FC = () => {
       ) : (
         <p className="text-lg">
           {" "}
-          Chọn đi, đừng chọn cái nào mà dễ như bỡn, chọn cái nào ‘đâm vào não’
-          một chút cho đỡ nhàm chán nhé! 😏
+          Chọn đi để tôi xem xem bạn chọn gì  😏 😏
         </p>
       )}
       {flashcards.length > 0 && !hasCompleted && (

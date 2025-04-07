@@ -14,7 +14,7 @@ interface FlashcardData {
   type: string;
 }
 
-const PER_PAGE = 20;
+const PER_PAGE_OPTIONS = [5, 10, 15, 20, 25, 50];
 
 const FlashcardList: React.FC = () => {
   const [flashcards, setFlashcards] = useState<FlashcardData[]>([]);
@@ -25,6 +25,7 @@ const FlashcardList: React.FC = () => {
   const [hasCompleted, setHasCompleted] = useState<boolean>(false);
   const [isViPrompt, setIsViPrompt] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState<number>(20);
 
   const [answeredCards, setAnsweredCards] = useState<Set<number>>(new Set());
 
@@ -42,13 +43,13 @@ const FlashcardList: React.FC = () => {
       setFlashcards(randomArray);
       setCurrentPage(1);
       setRemainingIndexes(
-        shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+        shuffleArray(Array.from({ length: perPage }, (_, index) => index))
       );
       setAnsweredCards(new Set());
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [perPage]);
 
   const shuffleArray = (array: number[]) => {
     const shuffled = [...array];
@@ -61,25 +62,16 @@ const FlashcardList: React.FC = () => {
 
   const handleNext = useCallback(() => {
     if (remainingIndexes.length > 0) {
-    
-      if (!answeredCards.has(currentCardIndex)) {
-        setTotalAnswers((prev) => prev + 1);
-      }
       const nextIndex = remainingIndexes[0];
       setCurrentCardIndex(nextIndex);
       setRemainingIndexes(remainingIndexes.slice(1));
       setIsViPrompt(Math.random() < 0.5);
     } else {
-    
-      if (!answeredCards.has(currentCardIndex)) {
-        setTotalAnswers((prev) => prev + 1);
-      }
       setHasCompleted(true);
     }
-  }, [remainingIndexes, currentCardIndex, answeredCards]);
+  }, [remainingIndexes]);
 
   const handleAnswer = (isCorrect: boolean) => {
-  
     if (!answeredCards.has(currentCardIndex)) {
       setTotalAnswers((prev) => prev + 1);
       if (isCorrect) {
@@ -98,7 +90,7 @@ const FlashcardList: React.FC = () => {
   const handleRetake = () => {
     setHasCompleted(false);
     setRemainingIndexes(
-      shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+      shuffleArray(Array.from({ length: perPage }, (_, index) => index))
     );
     setAnsweredCards(new Set());
   };
@@ -107,7 +99,17 @@ const FlashcardList: React.FC = () => {
     setCurrentPage(idx);
     setHasCompleted(false);
     setRemainingIndexes(
-      shuffleArray(Array.from({ length: 20 }, (_, index) => index))
+      shuffleArray(Array.from({ length: perPage }, (_, index) => index))
+    );
+    setAnsweredCards(new Set());
+  };
+
+  const handlePerPageChange = (newPerPage: number) => {
+    setPerPage(newPerPage);
+    setCurrentPage(1);
+    setHasCompleted(false);
+    setRemainingIndexes(
+      shuffleArray(Array.from({ length: newPerPage }, (_, index) => index))
     );
     setAnsweredCards(new Set());
   };
@@ -129,14 +131,13 @@ const FlashcardList: React.FC = () => {
   };
 
   const currentCard = flashcards?.slice(
-    (currentPage - 1) * PER_PAGE,
-    currentPage * PER_PAGE
+    (currentPage - 1) * perPage,
+    currentPage * perPage
   )[currentCardIndex];
 
   const percentage = totalAnswers > 0 
     ? Math.round((correctAnswers / totalAnswers) * 100) 
     : 0;
-
 
   useEffect(() => {
     getTopics();
@@ -161,9 +162,28 @@ const FlashcardList: React.FC = () => {
 
       {flashcards.length > 0 && (
         <div className="mt-4">
+          <div className="mb-2">Chọn số câu hỏi mỗi ải</div>
+          <div className="flex flex-wrap gap-4">
+            {PER_PAGE_OPTIONS.map((option) => (
+              <div
+                key={option}
+                className={`${
+                  perPage === option ? "bg-blue-400" : "bg-gray-400"
+                } text-white px-4 py-2 rounded-lg cursor-pointer`}
+                onClick={() => handlePerPageChange(option)}
+              >
+                <span>{option}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {flashcards.length > 0 && (
+        <div className="mt-4">
           <div className="mb-2">Chọn ải số bên dưới</div>
           <div className="flex flex-wrap gap-4">
-            {Array(Math.round(flashcards.length / PER_PAGE))
+            {Array(Math.ceil(flashcards.length / perPage))
               .fill("")
               .map((_, idx) => (
                 <div
@@ -179,6 +199,7 @@ const FlashcardList: React.FC = () => {
           </div>
         </div>
       )}
+
       {hasCompleted ? (
         <div className="text-center">
           <p className="text-green-500">

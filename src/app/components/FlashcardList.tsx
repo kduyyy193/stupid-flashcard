@@ -15,6 +15,11 @@ interface FlashcardData {
 }
 
 const PER_PAGE_OPTIONS = [5, 10, 15, 20, 25, 50];
+const LANGUAGE_MODES = [
+  { value: "random", label: "Ngẫu nhiên" },
+  { value: "en", label: "Chỉ tiếng Anh" },
+  { value: "vi", label: "Chỉ tiếng Việt" },
+];
 
 const FlashcardList: React.FC = () => {
   const [flashcards, setFlashcards] = useState<FlashcardData[]>([]);
@@ -26,7 +31,7 @@ const FlashcardList: React.FC = () => {
   const [isViPrompt, setIsViPrompt] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState<number>(20);
-
+  const [languageMode, setLanguageMode] = useState<string>("random");
   const [answeredCards, setAnsweredCards] = useState<Set<number>>(new Set());
 
   const { data: topics, getData: getTopics } = useLazyCachedData<ITopics[]>(
@@ -65,11 +70,19 @@ const FlashcardList: React.FC = () => {
       const nextIndex = remainingIndexes[0];
       setCurrentCardIndex(nextIndex);
       setRemainingIndexes(remainingIndexes.slice(1));
-      setIsViPrompt(Math.random() < 0.5);
+      
+      // Set prompt language based on languageMode
+      if (languageMode === "en") {
+        setIsViPrompt(false);
+      } else if (languageMode === "vi") {
+        setIsViPrompt(true);
+      } else {
+        setIsViPrompt(Math.random() < 0.5);
+      }
     } else {
       setHasCompleted(true);
     }
-  }, [remainingIndexes]);
+  }, [remainingIndexes, languageMode]);
 
   const handleAnswer = (isCorrect: boolean) => {
     if (!answeredCards.has(currentCardIndex)) {
@@ -104,7 +117,8 @@ const FlashcardList: React.FC = () => {
     setAnsweredCards(new Set());
   };
 
-  const handlePerPageChange = (newPerPage: number) => {
+  const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newPerPage = parseInt(event.target.value);
     setPerPage(newPerPage);
     setCurrentPage(1);
     setHasCompleted(false);
@@ -112,6 +126,14 @@ const FlashcardList: React.FC = () => {
       shuffleArray(Array.from({ length: newPerPage }, (_, index) => index))
     );
     setAnsweredCards(new Set());
+  };
+
+  const handleLanguageModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setLanguageMode(event.target.value);
+    setHasCompleted(false);
+    setRemainingIndexes(
+      shuffleArray(Array.from({ length: perPage }, (_, index) => index))
+    );
   };
 
   const getEncouragementMessage = (percentage: number) => {
@@ -161,20 +183,37 @@ const FlashcardList: React.FC = () => {
       <Topics topics={topics} onChange={handleChangeTopic} />
 
       {flashcards.length > 0 && (
-        <div className="mt-4">
-          <div className="mb-2">Chọn số câu hỏi mỗi ải</div>
-          <div className="flex flex-wrap gap-4">
-            {PER_PAGE_OPTIONS.map((option) => (
-              <div
-                key={option}
-                className={`${
-                  perPage === option ? "bg-blue-400" : "bg-gray-400"
-                } text-white px-4 py-2 rounded-lg cursor-pointer`}
-                onClick={() => handlePerPageChange(option)}
-              >
-                <span>{option}</span>
-              </div>
-            ))}
+        <div className="mt-4 space-y-4">
+          <div>
+            <label htmlFor="perPage" className="mb-2 block">Số câu hỏi mỗi ải:</label>
+            <select
+              id="perPage"
+              value={perPage}
+              onChange={handlePerPageChange}
+              className="bg-white border border-gray-300 rounded-lg px-4 py-2"
+            >
+              {PER_PAGE_OPTIONS.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="languageMode" className="mb-2 block">Chế độ thử thách:</label>
+            <select
+              id="languageMode"
+              value={languageMode}
+              onChange={handleLanguageModeChange}
+              className="bg-white border border-gray-300 rounded-lg px-4 py-2"
+            >
+              {LANGUAGE_MODES.map((mode) => (
+                <option key={mode.value} value={mode.value}>
+                  {mode.label}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       )}

@@ -47,8 +47,9 @@ const FlashcardList: React.FC = () => {
       const randomArray = arrayRandomItems(data);
       setFlashcards(randomArray);
       setCurrentPage(1);
+      const availableCards = Math.min(perPage, randomArray.length);
       setRemainingIndexes(
-        shuffleArray(Array.from({ length: perPage }, (_, index) => index))
+        shuffleArray(Array.from({ length: availableCards }, (_, index) => index))
       );
       setAnsweredCards(new Set());
     } catch (error) {
@@ -71,7 +72,6 @@ const FlashcardList: React.FC = () => {
       setCurrentCardIndex(nextIndex);
       setRemainingIndexes(remainingIndexes.slice(1));
       
-      // Set prompt language based on languageMode
       if (languageMode === "en") {
         setIsViPrompt(false);
       } else if (languageMode === "vi") {
@@ -111,10 +111,15 @@ const FlashcardList: React.FC = () => {
   const handleChangePage = (idx: number) => {
     setCurrentPage(idx);
     setHasCompleted(false);
+    const startIndex = (idx - 1) * perPage;
+    const remainingCards = Math.max(0, flashcards.length - startIndex);
+    const availableCards = Math.min(perPage, remainingCards);
+    
     setRemainingIndexes(
-      shuffleArray(Array.from({ length: perPage }, (_, index) => index))
+      shuffleArray(Array.from({ length: availableCards }, (_, index) => index))
     );
     setAnsweredCards(new Set());
+    setCurrentCardIndex(0);
   };
 
   const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -152,10 +157,9 @@ const FlashcardList: React.FC = () => {
     ];
   };
 
-  const currentCard = flashcards?.slice(
-    (currentPage - 1) * perPage,
-    currentPage * perPage
-  )[currentCardIndex];
+  const startIndex = (currentPage - 1) * perPage;
+  const cardsOnPage = flashcards.slice(startIndex, startIndex + perPage);
+  const currentCard = cardsOnPage[currentCardIndex];
 
   const percentage = totalAnswers > 0 
     ? Math.round((correctAnswers / totalAnswers) * 100) 
@@ -185,15 +189,23 @@ const FlashcardList: React.FC = () => {
       {flashcards.length > 0 && (
         <div className="mt-4 space-y-4">
           <div>
-            <label htmlFor="perPage" className="mb-2 block">Số câu hỏi mỗi ải:</label>
+            <label htmlFor="perPage" className="mb-2 block text-gray-700">
+              Số câu hỏi mỗi ải:
+            </label>
             <select
               id="perPage"
               value={perPage}
               onChange={handlePerPageChange}
-              className="bg-white border border-gray-300 rounded-lg px-4 py-2"
+              className="bg-white border border-gray-300 rounded-lg px-4 py-2 
+                text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                appearance-none"
             >
               {PER_PAGE_OPTIONS.map((option) => (
-                <option key={option} value={option}>
+                <option 
+                  key={option} 
+                  value={option}
+                  className="text-gray-700 bg-white hover:bg-gray-100"
+                >
                   {option}
                 </option>
               ))}
@@ -201,15 +213,23 @@ const FlashcardList: React.FC = () => {
           </div>
 
           <div>
-            <label htmlFor="languageMode" className="mb-2 block">Chế độ thử thách:</label>
+            <label htmlFor="languageMode" className="mb-2 block text-gray-700">
+              Chế độ thử thách:
+            </label>
             <select
               id="languageMode"
               value={languageMode}
               onChange={handleLanguageModeChange}
-              className="bg-white border border-gray-300 rounded-lg px-4 py-2"
+              className="bg-white border border-gray-300 rounded-lg px-4 py-2 
+                text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                appearance-none"
             >
               {LANGUAGE_MODES.map((mode) => (
-                <option key={mode.value} value={mode.value}>
+                <option 
+                  key={mode.value} 
+                  value={mode.value}
+                  className="text-gray-700 bg-white hover:bg-gray-100"
+                >
                   {mode.label}
                 </option>
               ))}
@@ -220,7 +240,7 @@ const FlashcardList: React.FC = () => {
 
       {flashcards.length > 0 && (
         <div className="mt-4">
-          <div className="mb-2">Chọn ải số bên dưới</div>
+          <div className="mb-2 text-gray-700">Chọn ải số bên dưới</div>
           <div className="flex flex-wrap gap-4">
             {Array(Math.ceil(flashcards.length / perPage))
               .fill("")
@@ -228,8 +248,10 @@ const FlashcardList: React.FC = () => {
                 <div
                   key={idx}
                   className={`${
-                    currentPage === idx + 1 ? "bg-blue-400" : "bg-gray-400"
-                  } text-white px-4 py-2 rounded-lg cursor-pointer`}
+                    currentPage === idx + 1 
+                      ? "bg-blue-500 hover:bg-blue-600" 
+                      : "bg-gray-400 hover:bg-gray-500"
+                  } text-white px-4 py-2 rounded-lg cursor-pointer transition-colors`}
                   onClick={() => handleChangePage(idx + 1)}
                 >
                   <span>{idx + 1}</span>

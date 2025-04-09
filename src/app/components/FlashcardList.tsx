@@ -332,7 +332,7 @@ const FlashcardList: React.FC = () => {
               Chọn chủ đề để bắt đầu nhé! ✨
             </p>
             <p className="text-gray-600 mt-2">
-              Sẵn sàng để thử thách bản thân chưa#pragma once
+              Sẵn sàng để thử thách bản thân chưa??
             </p>
           </div>
         )}

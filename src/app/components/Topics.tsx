@@ -13,30 +13,47 @@ interface IProps {
 
 const Topics = ({ topics, onChange }: IProps) => {
   return (
-    <div className="rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-white">Topics</h2>
+    <div className="relative">
       <select
-        defaultValue={"DEFAULT"}
+        defaultValue="DEFAULT"
         onChange={(e) => onChange(e.target.value)}
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-black text-start min-w-32"
+        className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 
+          text-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+          transition-all duration-200 shadow-sm hover:border-gray-400 appearance-none"
       >
         <option
           value="DEFAULT"
           disabled
-          className=" text-black p-4 bg-blue-500 rounded-lg shadow hover:bg-blue-600 transition-all cursor-pointer text-center font-semibold"
+          className="text-gray-500 bg-white"
         >
-          {"Select one"}
+          Chọn chủ đề
         </option>
-        {topics.map((topic, index) => (
+        {topics.map((topic) => (
           <option
-            key={index}
+            key={topic.id}
             value={topic.url}
-            className="text-black p-4 bg-blue-500 rounded-lg shadow hover:bg-blue-600 transition-all cursor-pointer text-center font-semibold"
+            className="text-gray-800 bg-white hover:bg-gray-100"
           >
             {topic.name}
           </option>
         ))}
       </select>
+      <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+        <svg
+          className="w-4 h-4 text-gray-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

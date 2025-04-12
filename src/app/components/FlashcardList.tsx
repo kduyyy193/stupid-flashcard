@@ -84,7 +84,7 @@ const FlashcardList: React.FC = () => {
 
   const handleNext = useCallback(() => {
     if (remainingIndexes.length > 0) {
-      const nextIndex = remainingIndexes[0];
+      const nextIndex = remainingIndexes?.[0];
       setCurrentCardIndex(nextIndex);
       setRemainingIndexes(remainingIndexes.slice(1));
 
@@ -163,7 +163,7 @@ const FlashcardList: React.FC = () => {
 
   const getEncouragementMessage = (percentage: number) => {
     if (!percentage || isNaN(percentage))
-      return messages[0]?.[0] || "Bắt đầu nào!";
+      return messages?.[0]?.[0] || "Bắt đầu nào!";
 
     if (percentage === 100) {
       const perfectMessages = messages[100];
@@ -318,7 +318,7 @@ const FlashcardList: React.FC = () => {
           <div className="w-full max-w-2xl z-10">
             <Flashcard
               isViPrompt={isViPrompt}
-              prompt={isViPrompt ? currentCard.vi[0] : currentCard.en[0]}
+              prompt={isViPrompt ? currentCard.vi?.[0] : currentCard.en?.[0]}
               answer={isViPrompt ? currentCard.en : currentCard.vi}
               type={currentCard.type}
               desc={currentCard?.desc}

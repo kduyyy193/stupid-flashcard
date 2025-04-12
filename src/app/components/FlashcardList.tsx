@@ -339,7 +339,7 @@ const FlashcardList: React.FC = () => {
       </div>
       {flashcards.length > 0 && !hasCompleted && (
         <p className="text-sm text-gray-600 text-center mt-4 italic">
-          Dùng "Mũi tên phải" để chuyển thẻ nhé!
+          Ấn mũi tên phải để chuyển thẻ nhé!
         </p>
       )}
     </div>

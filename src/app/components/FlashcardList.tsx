@@ -303,7 +303,7 @@ const FlashcardList: React.FC = () => {
                 {percentage}%
               </h2>
             </div>
-            <p className="text-gray-800 text-lg max-w-md mx-auto">
+            <p className="text-white text-lg max-w-md mx-auto">
               {getEncouragementMessage(percentage)}
             </p>
             <button

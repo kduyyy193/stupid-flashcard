@@ -9,5 +9,6 @@
   { "id": 12, "name": "Parts of the Body", "url": "/topics/parts-of-the-body.json" },
   { "id": 13, "name": "Face & Hair", "url": "/topics/face-and-hair.json" },
   { "id": 14, "name": "Appearance", "url": "/topics/appearance.json" },
-  { "id": 15, "name": "Body Movement", "url": "/topics/body-movement.json" }
+  { "id": 15, "name": "Body Movement", "url": "/topics/body-movement.json" },
+  { "id": 16, "name": "Feelings and Emotions", "url": "/topics/feelings-and-emotions.json" }
 ]

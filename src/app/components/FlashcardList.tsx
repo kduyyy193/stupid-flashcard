@@ -67,7 +67,7 @@ const FlashcardList: React.FC = () => {
           setIsViPrompt(Math.random() < 0.5);
         }
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching flashcards:", error);
       }
     },
     [perPage, languageMode]
@@ -83,22 +83,39 @@ const FlashcardList: React.FC = () => {
   };
 
   const handleNext = useCallback(() => {
-    if (remainingIndexes.length > 0) {
-      const nextIndex = remainingIndexes?.[0];
-      setCurrentCardIndex(nextIndex);
-      setRemainingIndexes(remainingIndexes.slice(1));
+    if (!answeredCards.has(currentCardIndex)) {
+      setTotalAnswers((prev) => prev + 1);
+      setAnsweredCards((prev) => new Set(prev).add(currentCardIndex));
+    }
 
-      if (languageMode === "en") {
-        setIsViPrompt(false);
-      } else if (languageMode === "vi") {
-        setIsViPrompt(true);
+    if (remainingIndexes.length > 0) {
+      const nextIndex = remainingIndexes[0];
+
+      if (nextIndex >= 0 && nextIndex < Math.min(perPage, flashcards.length)) {
+        setCurrentCardIndex(nextIndex);
+        setRemainingIndexes(remainingIndexes.slice(1));
+
+        if (languageMode === "en") {
+          setIsViPrompt(false);
+        } else if (languageMode === "vi") {
+          setIsViPrompt(true);
+        } else {
+          setIsViPrompt(Math.random() < 0.5);
+        }
       } else {
-        setIsViPrompt(Math.random() < 0.5);
+        setHasCompleted(true);
       }
     } else {
       setHasCompleted(true);
     }
-  }, [remainingIndexes, languageMode]);
+  }, [
+    remainingIndexes,
+    currentCardIndex,
+    answeredCards,
+    languageMode,
+    perPage,
+    flashcards.length,
+  ]);
 
   const handleAnswer = (isCorrect: boolean) => {
     if (!answeredCards.has(currentCardIndex)) {
@@ -116,10 +133,14 @@ const FlashcardList: React.FC = () => {
 
   const handleRetake = () => {
     setHasCompleted(false);
+    const availableCards = Math.min(perPage, flashcards.length);
     setRemainingIndexes(
-      shuffleArray(Array.from({ length: perPage }, (_, index) => index))
+      shuffleArray(Array.from({ length: availableCards }, (_, index) => index))
     );
     setAnsweredCards(new Set());
+    setCurrentCardIndex(0);
+    setCorrectAnswers(0);
+    setTotalAnswers(0);
   };
 
   const handleChangePage = (idx: number) => {
@@ -141,10 +162,12 @@ const FlashcardList: React.FC = () => {
     setPerPage(newPerPage);
     setCurrentPage(1);
     setHasCompleted(false);
+    const availableCards = Math.min(newPerPage, flashcards.length);
     setRemainingIndexes(
-      shuffleArray(Array.from({ length: newPerPage }, (_, index) => index))
+      shuffleArray(Array.from({ length: availableCards }, (_, index) => index))
     );
     setAnsweredCards(new Set());
+    setCurrentCardIndex(0);
   };
 
   const handleLanguageModeChange = (
@@ -191,7 +214,7 @@ const FlashcardList: React.FC = () => {
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") {
+      if (event.key === "ArrowRight" && !hasCompleted) {
         handleNext();
       }
     };
@@ -200,7 +223,7 @@ const FlashcardList: React.FC = () => {
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, [handleNext]);
+  }, [handleNext, hasCompleted]);
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -314,7 +337,7 @@ const FlashcardList: React.FC = () => {
               Thử lại nào!
             </button>
           </div>
-        ) : currentCard ? (
+        ) : currentCard && cardsOnPage.length > 0 ? (
           <div className="w-full max-w-2xl z-10">
             <Flashcard
               isViPrompt={isViPrompt}

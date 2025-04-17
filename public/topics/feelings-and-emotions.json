@@ -1,56 +1,306 @@
 [
-    { "id": 299, "en": ["amazed"], "vi": ["ngạc nhiên"], "type": "adjective" },
-    { "id": 300, "en": ["angry"], "vi": ["giận dữ"], "type": "adjective" },
-    { "id": 301, "en": ["annoyed"], "vi": ["bị làm phiền"], "type": "adjective" },
-    { "id": 302, "en": ["awful"], "vi": ["kinh khủng"], "type": "adjective" },
-    { "id": 303, "en": ["bad"], "vi": ["tồi tệ"], "type": "adjective" },
-    { "id": 304, "en": ["bored"], "vi": ["buồn chán"], "type": "adjective" },
-    { "id": 305, "en": ["confused"], "vi": ["bối rối", "lúng túng"], "type": "adjective" },
-    { "id": 306, "en": ["comfortable"], "vi": ["thỏa mái"], "type": "adjective" },
-    { "id": 307, "en": ["crazy"], "vi": ["phát điên lên"], "type": "adjective" },
-    { "id": 308, "en": ["disappointed"], "vi": ["thất vọng"], "type": "adjective" },
-    { "id": 309, "en": ["embarrassed"], "vi": ["bối rối", "ngượng"], "type": "adjective" },
-    { "id": 310, "en": ["enraged"], "vi": ["nổi khùng"], "type": "adjective" },
-    { "id": 311, "en": ["energetic"], "vi": ["có năng lượng", "năng động"], "type": "adjective" },
-    { "id": 312, "en": ["exhausted"], "vi": ["kiệt sức"], "type": "adjective" },
-    { "id": 313, "en": ["excited"], "vi": ["thú vị"], "type": "adjective" },
-    { "id": 314, "en": ["frightened"], "vi": ["hoảng sợ", "khiếp đảm"], "type": "adjective" },
-    { "id": 315, "en": ["funny"], "vi": ["buồn cười", "khôi hài"], "type": "adjective" },
-    { "id": 316, "en": ["glad"], "vi-caption": ["vui mừng"], "type": "adjective" },
-    { "id": 317, "en": ["guilty"], "vi": ["tội lỗi"], "type": "adjective" },
-    { "id": 318, "en": ["happy"], "vi": ["hạnh phúc"], "type": "adjective" },
-    { "id": 319, "en": ["horrible"], "vi": ["kinh khủng", "xấu xa", "đáng ghét"], "type": "adjective" },
-    { "id": 320, "en": ["hurt"], "vi": ["tổn thương"], "type": "adjective" },
-    { "id": 321, "en": ["interested"], "vi": ["thú vị"], "type": "adjective" },
-    { "id": 322, "en": ["jealous"], "vi": ["ghen tị"], "type": "adjective" },
-    { "id": 323, "en": ["joyful"], "vi": ["vui vẻ"], "type": "adjective" },
-    { "id": 324, "en": ["lonely"], "vi": ["cô đơn"], "type": "adjective" },
-    { "id": 325, "en": ["lovesick"], "vi": ["tương tư"], "type": "adjective" },
-    { "id": 326, "en": ["lucky"], "vi": ["có may mắn"], "type": "adjective" },
-    { "id": 327, "en": ["miserable"], "vi": ["đau khổ", "cực khổ"], "type": "adjective" },
-    { "id": 328, "en": ["moody"], "vi": ["đau khổ", "dễ cáu"], "type": "adjective" },
-    { "id": 329, "en": ["nervous"], "vi": ["bồn chồn", "rạo rực"], "type": "adjective" },
-    { "id": 330, "en": ["peaceful"], "vi": ["lặng", "bình yên"], "type": "adjective" },
-    { "id": 331, "en": ["pleasant"], "vi": ["vui vẻ", "dễ thương"], "type": "adjective" },
-    { "id": 332, "en": ["pleased"], "vi": ["hài lòng"], "type": "adjective" },
-    { "id": 333, "en": ["proud"], "vi": ["tự hào"], "type": "adjective" },
-    { "id": 334, "en": ["relaxed"], "vi": ["thảnh thơi"], "type": "adjective" },
-    { "id": 335, "en": ["reliable"], "vi": ["chín chắn"], "type": "adjective" },
-    { "id": 336, "en": ["reserved"], "vi": ["kín đáo", "để dành"], "type": "adjective" },
-    { "id": 337, "en": ["rude"], "vi": ["thô lỗ", "mạnh"], "type": "adjective" },
-    { "id": 338, "en": ["sad"], "vi": ["buồn bã"], "type": "adjective" },
-    { "id": 339, "en": ["satisfied"], "vi": ["hài lòng", "thỏa mãn"], "type": "adjective" },
-    { "id": 340, "en": ["scared"], "vi": ["bị hoảng sợ", "hốt hoảng"], "type": "adjective" },
-    { "id": 341, "en": ["sensitive"], "vi": ["nhạy cảm"], "type": "adjective" },
-    { "id": 342, "en": ["shocked"], "vi": ["bị sốc"], "type": "adjective" },
-    { "id": 343, "en": ["shy"], "vi": ["nhút nhát", "bẽn lẽn"], "type": "adjective" },
-    { "id": 344, "en": ["silly"], "vi": ["ngớ ngẩn", "không đùa"], "type": "adjective" },
-    { "id": 345, "en": ["spiteful"], "vi": ["hằn học", "đầy thù hận"], "type": "adjective" },
-    { "id": 346, "en": ["surprised"], "vi": ["ngạc nhiên"], "type": "adjective" },
-    { "id": 347, "en": ["sympathetic"], "vi": ["thông cảm"], "type": "adjective" },
-    { "id": 348, "en": ["tense"], "vi": ["căng thẳng", "bồn chồn"], "type": "adjective" },
-    { "id": 349, "en": ["thick"], "vi": ["ngu", "đần độn"], "type": "adjective" },
-    { "id": 350, "en": ["tired"], "vi": ["mệt", "chán"], "type": "adjective" },
-    { "id": 351, "en": ["tolerant"], "vi": ["khoan dung"], "type": "adjective" },
-    { "id": 352, "en": ["unpleasant"], "vi": ["không thoải mái"], "type": "adjective" }
-  ]
+  {
+    "id": 299,
+    "en": ["amazed"],
+    "vi": ["ngạc nhiên", "kinh ngạc"],
+    "type": "adjective"
+  },
+  {
+    "id": 300,
+    "en": ["angry"],
+    "vi": ["giận dữ", "tức giận"],
+    "type": "adjective"
+  },
+  {
+    "id": 301,
+    "en": ["annoyed"],
+    "vi": ["bực mình", "khó chịu"],
+    "type": "adjective"
+  },
+  {
+    "id": 302,
+    "en": ["awful"],
+    "vi": ["tồi tệ", "kinh khủng"],
+    "type": "adjective"
+  },
+  {
+    "id": 303,
+    "en": ["bad"],
+    "vi": ["tồi tệ", "xấu", "tệ"],
+    "type": "adjective"
+  },
+  {
+    "id": 304,
+    "en": ["bored"],
+    "vi": ["chán", "buồn chán"],
+    "type": "adjective"
+  },
+  {
+    "id": 305,
+    "en": ["confused"],
+    "vi": ["bối rối", "lúng túng", "lẫn lộn"],
+    "type": "adjective"
+  },
+  {
+    "id": 306,
+    "en": ["comfortable"],
+    "vi": ["thoải mái", "dễ chịu"],
+    "type": "adjective"
+  },
+  {
+    "id": 307,
+    "en": ["crazy"],
+    "vi": ["điên", "cuồng nhiệt", "kỳ lạ"],
+    "type": "adjective"
+  },
+  {
+    "id": 308,
+    "en": ["disappointed"],
+    "vi": ["thất vọng"],
+    "type": "adjective"
+  },
+  {
+    "id": 309,
+    "en": ["embarrassed"],
+    "vi": ["xấu hổ", "ngượng", "lúng túng"],
+    "type": "adjective"
+  },
+  {
+    "id": 310,
+    "en": ["enraged"],
+    "vi": ["nổi khùng", "tức giận dữ dội"],
+    "type": "adjective"
+  },
+  {
+    "id": 311,
+    "en": ["energetic"],
+    "vi": ["năng động", "tràn đầy năng lượng"],
+    "type": "adjective"
+  },
+  {
+    "id": 312,
+    "en": ["exhausted"],
+    "vi": ["kiệt sức", "mệt mỏi"],
+    "type": "adjective"
+  },
+  {
+    "id": 313,
+    "en": ["excited"],
+    "vi": ["phấn khích", "hào hứng"],
+    "type": "adjective"
+  },
+  {
+    "id": 314,
+    "en": ["frightened"],
+    "vi": ["sợ hãi", "hoảng sợ", "khiếp đảm"],
+    "type": "adjective"
+  },
+  {
+    "id": 315,
+    "en": ["funny"],
+    "vi": ["hài hước", "buồn cười", "kỳ lạ"],
+    "type": "adjective"
+  },
+  {
+    "id": 316,
+    "en": ["glad"],
+    "vi": ["vui mừng", "hài lòng"],
+    "type": "adjective"
+  },
+  {
+    "id": 317,
+    "en": ["guilty"],
+    "vi": ["tội lỗi", "có lỗi"],
+    "type": "adjective"
+  },
+  {
+    "id": 318,
+    "en": ["happy"],
+    "vi": ["hạnh phúc", "vui vẻ"],
+    "type": "adjective"
+  },
+  {
+    "id": 319,
+    "en": ["horrible"],
+    "vi": ["kinh khủng", "tồi tệ", "đáng ghét"],
+    "type": "adjective"
+  },
+  {
+    "id": 320,
+    "en": ["hurt"],
+    "vi": ["tổn thương", "đau"],
+    "type": "adjective"
+  },
+  {
+    "id": 321,
+    "en": ["interested"],
+    "vi": ["quan tâm", "thích thú"],
+    "type": "adjective"
+  },
+  {
+    "id": 322,
+    "en": ["jealous"],
+    "vi": ["ghen tị", "ghen tuông"],
+    "type": "adjective"
+  },
+  {
+    "id": 323,
+    "en": ["joyful"],
+    "vi": ["vui vẻ", "hân hoan"],
+    "type": "adjective"
+  },
+  {
+    "id": 324,
+    "en": ["lonely"],
+    "vi": ["cô đơn", "lẻ loi"],
+    "type": "adjective"
+  },
+  {
+    "id": 325,
+    "en": ["lovesick"],
+    "vi": ["tương tư", "đau khổ vì tình"],
+    "type": "adjective"
+  },
+  { "id": 326, "en": ["lucky"], "vi": ["may mắn"], "type": "adjective" },
+  {
+    "id": 327,
+    "en": ["miserable"],
+    "vi": ["khốn khổ", "đau khổ", "cực khổ"],
+    "type": "adjective"
+  },
+  {
+    "id": 328,
+    "en": ["moody"],
+    "vi": ["tâm trạng thất thường", "ủ rũ", "buồn bã", "dễ cáu"],
+    "type": "adjective"
+  },
+  {
+    "id": 329,
+    "en": ["nervous"],
+    "vi": ["lo lắng", "căng thẳng", "bồn chồn"],
+    "type": "adjective"
+  },
+  {
+    "id": 330,
+    "en": ["peaceful"],
+    "vi": ["bình yên", "yên tĩnh"],
+    "type": "adjective"
+  },
+  {
+    "id": 331,
+    "en": ["pleasant"],
+    "vi": ["dễ chịu", "vui vẻ"],
+    "type": "adjective"
+  },
+  {
+    "id": 332,
+    "en": ["pleased"],
+    "vi": ["hài lòng", "vui mừng"],
+    "type": "adjective"
+  },
+  { "id": 333, "en": ["proud"], "vi": ["tự hào"], "type": "adjective" },
+  {
+    "id": 334,
+    "en": ["relaxed"],
+    "vi": ["thư giãn", "thoải mái", "thảnh thơi"],
+    "type": "adjective"
+  },
+  {
+    "id": 335,
+    "en": ["reliable"],
+    "vi": ["đáng tin cậy"],
+    "type": "adjective"
+  },
+  {
+    "id": 336,
+    "en": ["reserved"],
+    "vi": ["kín đáo", "dè dặt"],
+    "type": "adjective"
+  },
+  {
+    "id": 337,
+    "en": ["rude"],
+    "vi": ["thô lỗ", "bất lịch sự"],
+    "type": "adjective"
+  },
+  {
+    "id": 338,
+    "en": ["sad"],
+    "vi": ["buồn", "buồn bã", "đáng buồn"],
+    "type": "adjective"
+  },
+  {
+    "id": 339,
+    "en": ["satisfied"],
+    "vi": ["hài lòng", "thỏa mãn"],
+    "type": "adjective"
+  },
+  {
+    "id": 340,
+    "en": ["scared"],
+    "vi": ["sợ hãi", "hốt hoảng"],
+    "type": "adjective"
+  },
+  {
+    "id": 341,
+    "en": ["sensitive"],
+    "vi": ["nhạy cảm", "dễ bị tổn thương"],
+    "type": "adjective"
+  },
+  {
+    "id": 342,
+    "en": ["shocked"],
+    "vi": ["sốc", "kinh ngạc"],
+    "type": "adjective"
+  },
+  {
+    "id": 343,
+    "en": ["shy"],
+    "vi": ["nhút nhát", "e thẹn", "bẽn lẽn"],
+    "type": "adjective"
+  },
+  {
+    "id": 344,
+    "en": ["silly"],
+    "vi": ["ngớ ngẩn", "dại dột"],
+    "type": "adjective"
+  },
+  {
+    "id": 345,
+    "en": ["spiteful"],
+    "vi": ["hằn học", "đầy thù hận", "ác ý"],
+    "type": "adjective"
+  },
+  { "id": 346, "en": ["surprised"], "vi": ["ngạc nhiên"], "type": "adjective" },
+  {
+    "id": 347,
+    "en": ["sympathetic"],
+    "vi": ["thông cảm", "đồng cảm"],
+    "type": "adjective"
+  },
+  {
+    "id": 348,
+    "en": ["tense"],
+    "vi": ["căng thẳng", "bồn chồn"],
+    "type": "adjective"
+  },
+  {
+    "id": 349,
+    "en": ["thick"],
+    "vi": ["ngu", "đần độn", "dày"],
+    "type": "adjective"
+  },
+  { "id": 350, "en": ["tired"], "vi": ["mệt", "mệt mỏi"], "type": "adjective" },
+  {
+    "id": 351,
+    "en": ["tolerant"],
+    "vi": ["khoan dung", "chịu đựng"],
+    "type": "adjective"
+  },
+  {
+    "id": 352,
+    "en": ["unpleasant"],
+    "vi": ["khó chịu", "không thoải mái"],
+    "type": "adjective"
+  }
+]
